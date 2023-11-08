@@ -1,0 +1,19 @@
+meta {
+  name: New Card
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/credit-cards
+  body: json
+}
+
+body:json {
+  {
+    "name": "boo",
+    "number": "5234567891112135",
+    "expiry": "11/26",
+    "limit": 0
+  }
+}

@@ -1,0 +1,16 @@
+meta {
+  name: Update limit
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:8080/credit-cards/5234567891112135
+  body: json
+}
+
+body:json {
+  {
+    "limit": 500
+  }
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Credit Card
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://localhost:8080/credit-cards/5234567891112139/credit
+  body: json
+}
+
+body:json {
+  {
+    "amount": 512,
+    "shopId": "66669b22-d6ea-4847-a82a-907c410b9a35"
+  }
+}
