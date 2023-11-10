@@ -11,7 +11,7 @@ data class CreateCardRequest(val number: String? = null, val name: String? = nul
  */
 fun CreateCardRequest.toCreditCard() =
     CreditCard(
-        number!!,
+        number?.trim()?.replace(Regex("[\\w\\-_]"), "")!!,
         name!!,
         expiry!!,
         limit?.toInt()!!

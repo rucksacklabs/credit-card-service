@@ -28,8 +28,12 @@ class ValidationTests {
         assertTrue(isValidCardNumber(null) is Invalid)
         assertTrue(isValidCardNumber("123456") is Invalid)
         assertTrue(isValidCardNumber("") is Invalid)
+        assertTrue(isValidCardNumber("lasndfkjabdsfvkjb") is Invalid)
         assertTrue(isValidCardNumber("123456789123456") is Valid)
-        assertTrue(isValidCardNumber("1234567891234567") is Valid)
+        assertTrue(isValidCardNumber("    123456789123 456") is Valid)
+        assertTrue(isValidCardNumber("1234 5678 9123 4567") is Valid)
+        assertTrue(isValidCardNumber("1234-5678-9123-4567") is Valid)
+        assertTrue(isValidCardNumber("1234_5678_9123_4567") is Valid)
     }
 
     @Test

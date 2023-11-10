@@ -56,7 +56,7 @@ fun isValidLimit(limit: String?): ValidationResult =
     }.fold({ Valid }, { Invalid("Invalid limit $limit") })
 
 fun isValidCardNumber(number: String?): ValidationResult =
-    if (number == null || !number.matches(Regex("[0-9]{15,16}"))) {
+    if (number == null || !number.trim().replace(Regex("[\\s\\-_]"), "").matches(Regex("^[0-9]{15,16}$"))) {
         Invalid("Invalid card number. Must be 15 or 16 digits long")
     } else {
         Valid
