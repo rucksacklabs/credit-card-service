@@ -1,5 +1,6 @@
 package com.reneruck.models
 
+import com.reneruck.extensions.sanitizeCardNumber
 import io.ktor.resources.Resource
 import kotlinx.serialization.Serializable
 
@@ -11,7 +12,7 @@ data class CreateCardRequest(val number: String? = null, val name: String? = nul
  */
 fun CreateCardRequest.toCreditCard() =
     CreditCard(
-        number?.trim()?.replace(Regex("[\\w\\-_]"), "")!!,
+        number?.sanitizeCardNumber()!!,
         name!!,
         expiry!!,
         limit?.toInt()!!
